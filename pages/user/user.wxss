@@ -1,0 +1,50 @@
+.userinfo{
+  display: flex;
+}
+
+.userinfo-avatar{
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname{
+  font-size: 40rpx;
+  color: #aaa;
+  margin: 30rpx;
+}
+
+.updateUserInfo{
+  color: #aaa;
+  line-height: 80rpx;
+}
+
+.car-num{
+  border-top: 2rpx solid #ccc;
+  border-bottom: 2rpx solid #ccc;
+  width: 100%;
+  height: 80rpx;
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+  line-height: 80rpx;
+}
+
+.contact{
+  border-top: 2rpx solid #ccc;
+  border-bottom: 2rpx solid #ccc;
+  width: 100%;
+  height: 80rpx;
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  line-height: 80rpx;
+}
+
+.historyOrder{
+  border-bottom: 2rpx solid #ccc;
+  width: 100%;
+  height: 80rpx;
+  margin-top: 10rpx;
+  margin-left: 20rpx;
+  line-height: 80rpx;
+}

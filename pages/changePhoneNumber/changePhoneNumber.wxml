@@ -1,0 +1,3 @@
+<input placeholder="输入电话号码"></input>
+
+<button form-type="submit" bindtap="phoneNumberSubmit">保存</button>

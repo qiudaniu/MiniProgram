@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/user/user",
+    "pages/changePhoneNumber/changePhoneNumber",
+    "pages/search/search",
+    "pages/parkingInfo/parkingInfo",
+    "pages/map/map"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#fff"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/search/search",
+        "text": "搜索",
+        "iconPath": "images/search.png",
+        "selectedIconPath": "images/search.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "我",
+        "iconPath": "images/user.png",
+        "selectedIconPath": "images/user.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

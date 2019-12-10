@@ -1,0 +1,8 @@
+<input class="search" confirm-type="search" placeholder="搜索目的地" />
+
+<!-- 返回查询结果 -->
+<view wx:for="{{array}}" wx:key="key">
+  <view class="list" bindtap="getParkingInfoDetail">
+    <view class="item">{{item}}</view>
+  </view>
+</view>

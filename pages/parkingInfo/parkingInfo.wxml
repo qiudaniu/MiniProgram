@@ -1,0 +1,6 @@
+<!--pages/parkingInfo/parkingInfo.wxml-->
+<text>停车场数据</text>
+
+<view>
+  <image style="width: 60rpx; height: 60rpx;" src="../../images/region.png" bindtap="getMap"></image>
+</view>
