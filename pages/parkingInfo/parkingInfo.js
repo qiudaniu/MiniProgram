@@ -1,16 +1,22 @@
 // pages/parkingInfo/parkingInfo.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    location: []
   },
 
   getMap: function(res){
-    wx.navigateTo({
-      url: '../map/map',
+    wx.openLocation({        //所以这里会显示你当前的位置
+      latitude: 30.3373,
+      longitude: 120.1205,
+      name: "南宁市西乡塘区秀厢大道东",
+      address: "南宁市西乡塘区秀厢大道东",
+      scale: 28
     })
   },
 
@@ -18,7 +24,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+      wx.request({
+        url: app.globalData.domain + '/api/parking/queryParkingLotByPId?pid=' + options.pid,
+        success: res => {
+          console.log(res)
+        }
+      })
   },
 
   /**

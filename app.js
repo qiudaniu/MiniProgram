@@ -12,20 +12,24 @@ App({
         console.log(res.code)
         if (res.code){
           wx.request({
-            url: '',
-            data: {
-              code: res.code
-            },
-            success(res){
-              wx.setStorageSync("uid", res.key)
+            url: this.globalData.domain + "/api/user/login?js_code=" + res.code,
+            success: res => {
               console.log(res)
             },
-            fail (res) {
-              console.log(res)
+            fail: res => {
+              wx.showToast({
+                title: '发送失败',
+                icon: 'none',
+                duration: 2000
+              })
             }
           })
         }else{
-          console.log('登录失败！' + res.reMsg)
+          wx.showToast({
+            title: '登录失败',
+            icon: 'none',
+            duration: 2000
+          })
         }
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       },
@@ -54,6 +58,7 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    domain: "https://qiudaniu.top"
   }
 })

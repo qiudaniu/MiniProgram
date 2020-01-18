@@ -1,1 +1,15 @@
 /* pages/parkingInfo/parkingInfo.wxss */
+.header{
+  height: 66rpx;
+}
+
+.title{
+  color: green;
+  text-align: center;
+}
+
+.map{
+  width: 50rpx;
+  height: 50rpx;
+  float: right;
+}

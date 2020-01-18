@@ -1,16 +1,45 @@
 // pages/search/search.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    array: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
+    array: [] //1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19
+  },
+
+  confirmSearch: function(event){
+    wx.request({
+      url: app.globalData.domain + "/api/parking/queryExactParking?area_name=" + event.detail.value,
+      success: res => {
+        if(res.data.code == 200){
+          this.setData({
+            array: res.data.data
+          })
+        }else{
+          wx.showToast({
+            title: '没有数据',
+            icon: 'none',
+            duration: 2000
+          })
+        }
+        console.log(res.data.data)
+      },
+      fail: res => {
+        wx.showToast({
+          title: '发送失败',
+          icon: 'none',
+          duration: 2000
+        })
+      }
+    })
   },
 
   getParkingInfoDetail: function(res){
     wx.navigateTo({
-      url: '../parkingInfo/parkingInfo',
+      url: '../parkingInfo/parkingInfo?pid=' + res.currentTarget.dataset.id,
     })
   },
 
