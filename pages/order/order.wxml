@@ -1,0 +1,24 @@
+<!--pages/order/order.wxml-->
+<!-- 预定车位订单信息 -->
+<view>
+  <text>电话号码：</text>     {{carno}}
+</view>
+
+<view>
+  车牌号码：     {{phoneNumber}}
+</view>
+
+<view>
+  <date-time-picker value="{{beginTime}}" bind:change="handleChangeBegin">开始时间： {{beginTime}}</date-time-picker>
+</view>
+
+<view>
+  <date-time-picker value="{{finalTime}}" bind:change="handleChangeFinal">结束时间： {{finalTime}}</date-time-picker>
+</view>
+
+<!-- 收款二维码 -->
+<image src="/images/pay.jpg" mode="aspectFit"></image>
+
+<button form-type="submit" bindtap="submitOrder">
+  提交
+</button>

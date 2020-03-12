@@ -5,13 +5,19 @@
 </view>
 
 <view class="car-num">
-  车牌号
+    <view class="left_content" bindtap="modalinputcarno">车牌号</view>
+    <view class="right_content">{{carno}}</view>
 </view>
 
-<view class="contact" data-uid="1" bindtap="changePhoneNumber">
-  联系方式
+<view class="contact">
+  <view class="left_content" bindtap="modalinputphone">联系方式</view>
+  <view class="right_content">{{phoneNumber}}</view>
 </view>
 
 <view class="historyOrder" bindtap="getHistoryOrder">
   历史订单
 </view>
+
+<modal id="modal" hidden="{{hiddenmodalput}}" title="{{modaltitle}}" confirm-text="提交" cancel-text="取消" bindcancel="cancel" bindconfirm="confirm" > 
+<input type = 'text' placeholder = "请输入" bindinput="getinput" auto-focus /> 
+</modal>

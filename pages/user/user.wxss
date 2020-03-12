@@ -30,6 +30,17 @@
   line-height: 80rpx;
 }
 
+.left_content{
+  width: 150rpx;
+  float: left
+}
+
+.right_content{
+  float: right;
+  width: 300rpx;
+  color: green;
+}
+
 .contact{
   border-top: 2rpx solid #ccc;
   border-bottom: 2rpx solid #ccc;

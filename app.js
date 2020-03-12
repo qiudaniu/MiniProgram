@@ -1,20 +1,15 @@
 //app.js
 App({
   onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
     // 登录
     wx.login({
       success: res => {
-        console.log(res.code)
-        if (res.code){
+        // console.log(res)
           wx.request({
             url: this.globalData.domain + "/api/user/login?js_code=" + res.code,
-            success: res => {
-              console.log(res)
+            success: res_login => {
+              console.log(res_login)
+              this.globalData.login_key = res_login.data.login_key_sign
             },
             fail: res => {
               wx.showToast({
@@ -24,16 +19,15 @@ App({
               })
             }
           })
-        }else{
-          wx.showToast({
-            title: '登录失败',
-            icon: 'none',
-            duration: 2000
-          })
-        }
+        
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       },
       fail: res => {
+        wx.showToast({
+          title: '登录失败',
+          icon: 'none',
+          duration: 2000
+        })
       }
     })
     // 获取用户信息
@@ -59,6 +53,7 @@ App({
   },
   globalData: {
     userInfo: null,
-    domain: "https://qiudaniu.top"
+    domain: "https://qiudaniu.top",
+    login_key: ""
   }
 })

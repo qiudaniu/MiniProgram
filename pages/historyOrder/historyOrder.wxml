@@ -1,0 +1,10 @@
+<view wx:for="{{array}}" wx:key="key">
+  <view>
+    <view>停车场名称： {{item.ParkingName}}</view>
+    <view>车牌号码： {{item.CardNo}}</view>
+    <view>联系方式： {{item.OrderUser}}</view>
+    <view>开始时间： {{item.OrderBeginTime}}</view>
+    <view>结束时间： {{item.EndTime}}</view>
+    <view>金额： {{item.Money}}元</view>
+  </view>
+</view>

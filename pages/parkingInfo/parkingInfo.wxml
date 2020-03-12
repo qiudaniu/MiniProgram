@@ -1,7 +1,15 @@
 <!--pages/parkingInfo/parkingInfo.wxml-->
 
+<!-- 停车场名称 地图图标 -->
 <view class="header">
-  <text class="title">停车场数据</text>
+  <text class="title">{{location.name}}</text>
 
   <image class="map" src="../../images/region.png" bindtap="getMap"></image>
 </view>
+
+<!-- 停车场信息 -->
+<view class="item">
+  {{location.pricedesc}}
+</view>
+
+<button type="primary" bindtap="order" data-id="{{location.pid}}">预约</button>

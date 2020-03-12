@@ -80,6 +80,27 @@
 					"id": -1,
 					"name": "pages/parkingInfo/parkingInfo",
 					"pathName": "pages/parkingInfo/parkingInfo",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/order/order",
+					"pathName": "pages/order/order",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/search/search",
+					"pathName": "pages/search/search",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/historyOrder/historyOrder",
+					"pathName": "pages/historyOrder/historyOrder",
 					"scene": null
 				}
 			]

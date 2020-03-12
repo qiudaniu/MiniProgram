@@ -5,7 +5,9 @@
     "pages/changePhoneNumber/changePhoneNumber",
     "pages/search/search",
     "pages/parkingInfo/parkingInfo",
-    "pages/map/map"
+    "pages/order/order",
+    "pages/map/map",
+    "pages/historyOrder/historyOrder"
   ],
   "window": {
     "backgroundTextStyle": "light",

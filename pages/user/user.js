@@ -10,7 +10,61 @@ Page({
     userInfo: [],
     hasUserInfo: false,
     canIUse: wx.canIUse("button.open-type.getUserInfo"),
-    phoneNumber: ''
+    phoneNumber: '',
+    carno: '',
+    hiddenmodalput: true,
+    modaltitle: ''
+  },
+
+  //点击按钮弹窗指定的hiddenmodalput弹出框 
+  modalinputcarno: function () {
+    this.setData({
+      hiddenmodalput: !this.data.hiddenmodalput,
+      modaltitle: "车牌号码"
+    })
+  },
+
+  modalinputphone: function () {
+    this.setData({
+      hiddenmodalput: !this.data.hiddenmodalput,
+      modaltitle: "联系方式"
+    })
+  },
+
+  //取消按钮 
+  cancel: function () {
+    this.setData({
+      hiddenmodalput: true
+    });
+  },
+
+  //获取input数据
+  getinput: function(res){
+    console.log(res);
+    if (this.data.modaltitle == "车牌号码"){
+      this.setData({
+        carno: res.detail.value
+      })
+    }else if(this.data.modaltitle == "联系方式"){
+      this.setData({
+        phoneNumber: res.detail.value
+      })
+    }
+  },
+
+  //确认 
+  confirm: function () {
+    var self = this
+    wx.request({
+      url: app.globalData.domain + "/api/user/updateUser?login_key=" + app.globalData.login_key + "&userMobile=" + self.data.phoneNumber + "&userCardNo=" + self.data.carno,
+      success: res => {
+        console.log(res)
+      }
+    })
+    
+    this.setData({
+      hiddenmodalput: true
+    })
   },
 
   getUserInfo: function(e){
@@ -48,16 +102,22 @@ Page({
         }
       })
     }
-  },
 
-  changePhoneNumber: function(res){
-    wx.navigateTo({
-      url: '../changePhoneNumber/changePhoneNumber?uid=' + res.currentTarget.dataset.uid,
+    wx.request({
+      url: app.globalData.domain + "/api/user/queryUser?login_key=" + app.globalData.login_key,
+      success: res => {
+        this.setData({
+          carno: res.data.UserCardId,
+          phoneNumber: res.data.UserMobile
+        })
+      }
     })
   },
 
   getHistoryOrder: function(res){
-    console.log(res)
+      wx.navigateTo({
+        url: '../historyOrder/historyOrder',
+      })
   },
 
   /**
